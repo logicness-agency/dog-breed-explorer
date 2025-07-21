@@ -1,52 +1,22 @@
-import { useEffect, useState } from "react";
-import AddBreedForm from "../components/AddBreedForm";
+import { Link } from "react-router-dom";
+import myDog from "../assets/my-dog.jpg";
 
-function Home() {
-  const [breeds, setBreeds] = useState([]);
-
-  const fetchBreeds = () => {
-    fetch("https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/breeds.json")
-      .then((res) => res.json())
-      .then((data) => {
-        if (!data) return setBreeds([]);
-        const loaded = Object.entries(data).map(([id, value]) => ({
-          id,
-          ...value,
-        }));
-        setBreeds(loaded);
-      });
-  };
-
-  useEffect(() => {
-    fetchBreeds();
-  }, []);
-
+export default function Home() {
   return (
-    <div className="container">
-      <div className="headline">
-        <h1>Dog Breed Explorer</h1>
-      </div>
+   <div className="hero bg-cream min-h-screen">
 
-      <AddBreedForm onBreedAdded={fetchBreeds} />
-      <hr />
-
-      <div className="grid">
-        {breeds.map((breed) => (
-          <div key={breed.id} className="card">
-            <img
-              src={breed.imageUrl}
-              alt={breed.name}
-              onError={(e) => {
-                e.target.src = "https://via.placeholder.com/200x150?text=No+Image";
-              }}
-            />
-            <h2>{breed.name}</h2>
-            <p>{breed.notes}</p>
-          </div>
-        ))}
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <img src={myDog} alt="My Dog" className="max-w-sm rounded-lg shadow-2xl" />
+        <div>
+          <h1 className="text-5xl font-bold">Welcome to Dog Breed Explorer!</h1>
+          <p className="py-6">
+            Discover and explore a wide variety of dog breeds with images and fun facts.
+          </p>
+          <Link to="/breeds">
+            <button className="btn bg-primary text-cream">Explore Breeds</button>
+          </Link>
+        </div>
       </div>
     </div>
   );
 }
-
-export default Home;
