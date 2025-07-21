@@ -79,17 +79,8 @@ function Breeds() {
         </div>
       </div>
 
-      {/* Button zur Favoriten-Seite */}
-      <div className="mt-6 text-center">
-        <button
-          onClick={goToFavorites}
-          disabled={favorites.length === 0}
-          className={`btn btn-primary ${favorites.length === 0 ? "opacity-50 cursor-not-allowed" : ""
-            }`}
-        >
-          Show Favorites ({favorites.length})
-        </button>
-      </div>
+      
+      
     </div>
   );
 }
