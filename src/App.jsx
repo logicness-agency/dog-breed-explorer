@@ -3,11 +3,13 @@ import Navbar from "./components/Navbar";
 import Breeds from "./pages/Breeds";
 import Favorites from "./pages/Favorites";
 import Home from "./pages/Home";
+import SplashCursor from "./components/SplashCursor";
 
 function App() {
   return (
     <BrowserRouter>
-      <Navbar />  {/* Navbar hier, immer sichtbar */}
+      <SplashCursor />
+      <Navbar /> {/* Navbar global, immer sichtbar */}
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/breeds" element={<Breeds />} />

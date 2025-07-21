@@ -27,41 +27,42 @@ function Breeds() {
     );
   };
 
-  // Optional: Weiterleitung zur Favoriten-Seite mit Favoriten-IDs (kann per Context, Redux oder URL Params gemacht werden)
   const goToFavorites = () => {
     navigate("/favorites", { state: { favorites } });
   };
 
   return (
-    <div className="px-4 py-8 bg-cream min-h-screen">
-      <h1 className="text-3xl font-bold mb-6 text-center">All Dog Breeds</h1>
+    <div className="px-6 py-8 min-h-screen bg-black text-gray-200">
+      <h1 className="text-3xl font-bold mb-6 text-center text-silver-300">
+        All Dog Breeds
+      </h1>
 
       <div className="flex gap-8">
         {/* Formular links */}
-        <div className="w-80">
-          <AddBreedForm />
-        </div>
+       <div className="w-80 bg-black rounded-lg p-6 shadow-lg text-metallicGray max-h-[350px]">
+  <AddBreedForm />
+</div>
+
 
         {/* Grid rechts */}
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {breeds.map((breed) => {
             const isFavorite = favorites.includes(breed.id);
             return (
               <div
                 key={breed.id}
-                className="max-w-sm rounded overflow-hidden shadow bg-sand relative"
+                className="max-w-sm rounded-lg overflow-hidden shadow-lg relative bg-metallicGray"
               >
                 <img
                   src={breed.imageUrl}
                   alt={breed.name}
                   className="w-full h-60 object-cover"
                 />
-                <div className="p-4">
+                <div className="p-4 text-gray-100">
                   <h2 className="text-lg font-semibold">{breed.name}</h2>
-                  <p className="text-gray-600 text-sm">{breed.notes}</p>
+                  <p className="text-gray-300 text-sm">{breed.notes}</p>
                 </div>
 
-                {/* Favoriten-Button an der Kreuz-Stelle */}
                 <button
                   onClick={() => toggleFavorite(breed.id)}
                   className="absolute top-2 right-2 text-3xl cursor-pointer select-none"
@@ -78,9 +79,6 @@ function Breeds() {
           })}
         </div>
       </div>
-
-      
-      
     </div>
   );
 }

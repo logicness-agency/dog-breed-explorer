@@ -3,7 +3,7 @@ import myDog from "../assets/my-dog.jpg";
 
 export default function Home() {
   return (
-   <div className="hero bg-cream min-h-screen">
+    <div className="hero min-h-screen">
 
       <div className="hero-content flex-col lg:flex-row-reverse">
         <img src={myDog} alt="My Dog" className="max-w-sm rounded-lg shadow-2xl" />
@@ -13,7 +13,7 @@ export default function Home() {
             Discover and explore a wide variety of dog breeds with images and fun facts.
           </p>
           <Link to="/breeds">
-            <button className="btn bg-primary text-cream">Explore Breeds</button>
+            <button className="btn bg-primary text-silver">Explore Breeds</button>
           </Link>
         </div>
       </div>

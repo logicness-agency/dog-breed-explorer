@@ -29,8 +29,8 @@ function AddBreedForm({ onBreedAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card bg-sand shadow p-6 w-full max-w-md mb-8">
-      <h2 className="text-lg font-bold text-primary mb-4">Add a New Breed</h2>
+    <form onSubmit={handleSubmit} className="card shadow p-6 w-full max-w-md mb-8">
+      <h2 className="text-lg font-bold text-silver mb-4">Add a New Breed</h2>
 
       <input
         type="text"
@@ -55,9 +55,11 @@ function AddBreedForm({ onBreedAdded }) {
         required
         className="textarea textarea-bordered w-full mb-4"
       />
-      <button type="submit" className="btn bg-primary text-cream hover:opacity-90">
-        Add Breed
-      </button>
+   <button className="btn w-full bg-silver text-black hover:bg-gray-300">
+  Add Breed
+</button>
+
+
     </form>
   );
 }
