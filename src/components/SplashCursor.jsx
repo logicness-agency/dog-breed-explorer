@@ -15,7 +15,7 @@ function SplashCursor({
   SHADING = true,
   COLOR_UPDATE_SPEED = 10,
   BACK_COLOR = { r: 0.5, g: 0, b: 0 },
-  TRANSPARENT = true
+  TRANSPARENT = true,
 }) {
   const canvasRef = useRef(null);
 
@@ -76,7 +76,6 @@ function SplashCursor({
         gl =
           canvas.getContext('webgl', params) ||
           canvas.getContext('experimental-webgl', params);
-
       let halfFloat;
       let supportLinearFiltering;
       if (isWebGL2) {
@@ -84,10 +83,11 @@ function SplashCursor({
         supportLinearFiltering = gl.getExtension('OES_texture_float_linear');
       } else {
         halfFloat = gl.getExtension('OES_texture_half_float');
-        supportLinearFiltering = gl.getExtension('OES_texture_half_float_linear');
+        supportLinearFiltering = gl.getExtension(
+          'OES_texture_half_float_linear'
+        );
       }
       gl.clearColor(0.0, 0.0, 0.0, 1.0);
-
       const halfFloatTexType = isWebGL2
         ? gl.HALF_FLOAT
         : halfFloat && halfFloat.HALF_FLOAT_OES;
@@ -128,7 +128,10 @@ function SplashCursor({
             return null;
         }
       }
-      return { internalFormat, format };
+      return {
+        internalFormat,
+        format,
+      };
     }
 
     function supportRenderTextureFormat(gl, internalFormat, format, type) {
@@ -138,7 +141,17 @@ function SplashCursor({
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.NEAREST);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
       gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-      gl.texImage2D(gl.TEXTURE_2D, 0, internalFormat, 4, 4, 0, format, type, null);
+      gl.texImage2D(
+        gl.TEXTURE_2D,
+        0,
+        internalFormat,
+        4,
+        4,
+        0,
+        format,
+        type,
+        null
+      );
       const fbo = gl.createFramebuffer();
       gl.bindFramebuffer(gl.FRAMEBUFFER, fbo);
       gl.framebufferTexture2D(
@@ -281,7 +294,7 @@ function SplashCursor({
         void main () {
             gl_FragColor = value * texture2D(uTexture, vUv);
         }
-      `
+     `
     );
 
     const displayShaderSource = `
@@ -949,10 +962,7 @@ function SplashCursor({
       );
       gl.uniform2f(splatProgram.uniforms.point, x, y);
       gl.uniform3f(splatProgram.uniforms.color, dx, dy, 0.0);
-      gl.uniform1f(
-        splatProgram.uniforms.radius,
-        correctRadius(config.SPLAT_RADIUS / 100.0)
-      );
+      gl.uniform1f(splatProgram.uniforms.radius, correctRadius(config.SPLAT_RADIUS / 100.0));
       blit(velocity.write);
       velocity.swap();
 
@@ -1181,26 +1191,8 @@ function SplashCursor({
   ]);
 
   return (
-    <div
-      style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        zIndex: 50,
-        pointerEvents: 'none',
-        width: '100%',
-        height: '100%',
-      }}
-    >
-      <canvas
-        ref={canvasRef}
-        id="fluid"
-        style={{
-          width: '100vw',
-          height: '100vh',
-          display: 'block',
-        }}
-      />
+    <div className="fixed top-0 left-0 z-50 pointer-events-none w-full h-full">
+      <canvas ref={canvasRef} id="fluid" className="w-screen h-screen block"></canvas>
     </div>
   );
 }

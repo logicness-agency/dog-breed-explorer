@@ -1,34 +1,36 @@
 import React, { useEffect, useState } from "react";
 import AddBreedForm from "../components/AddBreedForm";
-import { useNavigate } from "react-router-dom";
 
 function Breeds() {
   const [breeds, setBreeds] = useState([]);
-  const [favorites, setFavorites] = useState([]);
-  const navigate = useNavigate();
+  const [favorites, setFavorites] = useState(() => {
+    const stored = localStorage.getItem("favorites");
+    return stored ? JSON.parse(stored) : [];
+  });
 
   useEffect(() => {
-    fetch(
-      "https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/breeds.json"
-    )
-      .then((res) => res.json())
-      .then((data) => {
-        const loadedBreeds = Object.entries(data).map(([id, breed]) => ({
-          id,
-          ...breed,
-        }));
-        setBreeds(loadedBreeds);
-      });
+    const fetchBreeds = async () => {
+      const res = await fetch(
+        "https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/breeds.json"
+      );
+      const data = await res.json();
+      const loadedBreeds = Object.entries(data).map(([id, breed]) => ({
+        id,
+        ...breed,
+      }));
+      setBreeds(loadedBreeds);
+    };
+    fetchBreeds();
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("favorites", JSON.stringify(favorites));
+  }, [favorites]);
 
   const toggleFavorite = (id) => {
     setFavorites((prev) =>
       prev.includes(id) ? prev.filter((fav) => fav !== id) : [...prev, id]
     );
-  };
-
-  const goToFavorites = () => {
-    navigate("/favorites", { state: { favorites } });
   };
 
   return (
@@ -38,42 +40,54 @@ function Breeds() {
       </h1>
 
       <div className="flex gap-8">
-        {/* Formular links */}
-       <div className="w-80 bg-black rounded-lg p-6 shadow-lg text-metallicGray max-h-[350px]">
-  <AddBreedForm />
-</div>
+        <div className="w-80 bg-black rounded-lg p-6 shadow-lg text-metallicGray max-h-[350px]">
+          <AddBreedForm />
+        </div>
 
-
-        {/* Grid rechts */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {breeds.map((breed) => {
             const isFavorite = favorites.includes(breed.id);
             return (
               <div
                 key={breed.id}
-                className="max-w-sm rounded-lg overflow-hidden shadow-lg relative bg-metallicGray"
+                className="max-w-sm rounded-lg overflow-hidden shadow-lg relative bg-metallicGray flex flex-col"
               >
                 <img
                   src={breed.imageUrl}
                   alt={breed.name}
                   className="w-full h-60 object-cover"
                 />
-                <div className="p-4 text-gray-100">
+                <div className="p-4 text-gray-100 flex-1">
                   <h2 className="text-lg font-semibold">{breed.name}</h2>
                   <p className="text-gray-300 text-sm">{breed.notes}</p>
                 </div>
 
-                <button
-                  onClick={() => toggleFavorite(breed.id)}
-                  className="absolute top-2 right-2 text-3xl cursor-pointer select-none"
-                  aria-label={
-                    isFavorite
-                      ? "Remove from favorites"
-                      : "Add to favorites"
-                  }
-                >
-                  {isFavorite ? "❤️" : "♡"}
-                </button>
+              
+                <div className="flex items-center justify-end space-x-2 p-4 border-t border-gray-700">
+                  <button
+                    onClick={() => toggleFavorite(breed.id)}
+                    className="rounded-full px-3 py-1 text-2xl cursor-pointer select-none bg-gray-700 hover:bg-gray-600 text-red-500"
+                    aria-label={
+                      isFavorite
+                        ? "Remove from favorites"
+                        : "Add to favorites"
+                    }
+                  >
+                    {isFavorite ? "❤️" : "♡"}
+                  </button>
+                  <button
+                    className="rounded-full px-3 py-1 text-sm font-semibold bg-gray-700 hover:bg-gray-600 text-gray-300"
+                    aria-label="Edit breed"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="rounded-full px-3 py-1 text-sm font-semibold bg-gray-700 hover:bg-gray-600 text-gray-300"
+                    aria-label="Delete breed"
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             );
           })}
