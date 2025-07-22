@@ -1,19 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
 import Breeds from "./pages/Breeds";
 import Favorites from "./pages/Favorites";
-import Home from "./pages/Home";
-import SplashCursor from "./components/SplashCursor";
+import About from "./pages/About";
 
 function App() {
   return (
     <BrowserRouter>
-      <SplashCursor />
-      <Navbar /> {/* Navbar global, immer sichtbar */}
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/breeds" element={<Breeds />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route path="/about" element={<About />} />
       </Routes>
     </BrowserRouter>
   );

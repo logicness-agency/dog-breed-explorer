@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Grundfarbe für Body */
 body {
-  @apply bg-black text-silver;
+  @apply bg-beigeLight text-textPrimary;
 }

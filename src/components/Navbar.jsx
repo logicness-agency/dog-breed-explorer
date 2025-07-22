@@ -1,56 +1,33 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Navbar() {
-  const icons = {
-    home: "https://img.icons8.com/?size=100&id=73&format=png&color=ffffff",
-    breeds: "https://img.icons8.com/?size=100&id=821&format=png&color=ffffff",
-    favorites: "https://img.icons8.com/?size=100&id=87&format=png&color=ffffff",
-    about: "https://img.icons8.com/?size=100&id=3439&format=png&color=ffffff",
-  };
+  const location = useLocation();
+
+  const linkClasses = (path) =>
+    `px-4 py-2 rounded-md ${
+      location.pathname === path ? "bg-primary text-beigeLight" : "text-textPrimary hover:bg-primary hover:text-beigeLight"
+    }`;
 
   return (
-    <nav className="bg-black p-4 shadow-md">
-      <ul className="flex justify-center gap-8">
+    <nav className="bg-beigeLight shadow-md p-4">
+      <ul className="flex gap-4 justify-center">
         <li>
-          <Link
-            to="/"
-            className="flex flex-col items-center text-white no-underline hover:no-underline"
-            title="Home"
-          >
-            <img src={icons.home} alt="Home" className="h-6 w-6 mb-1" />
+          <Link to="/" className={linkClasses("/")}>
             Home
           </Link>
         </li>
-
         <li>
-          <Link
-            to="/breeds"
-            className="flex flex-col items-center text-white no-underline hover:no-underline"
-            title="Breeds"
-          >
-            <img src={icons.breeds} alt="Breeds" className="h-6 w-6 mb-1" />
+          <Link to="/breeds" className={linkClasses("/breeds")}>
             Breeds
           </Link>
         </li>
-
         <li>
-          <Link
-            to="/favorites"
-            className="flex flex-col items-center text-white no-underline hover:no-underline"
-            title="Favorites"
-          >
-            <img src={icons.favorites} alt="Favorites" className="h-6 w-6 mb-1" />
+          <Link to="/favorites" className={linkClasses("/favorites")}>
             Favorites
           </Link>
         </li>
-
         <li>
-          <Link
-            to="/about"
-            className="flex flex-col items-center text-white no-underline hover:no-underline"
-            title="About"
-          >
-            <img src={icons.about} alt="About" className="h-6 w-6 mb-1" />
+          <Link to="/about" className={linkClasses("/about")}>
             About
           </Link>
         </li>

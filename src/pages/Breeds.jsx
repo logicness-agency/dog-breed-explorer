@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import AddBreedForm from "../components/AddBreedForm";
 
-function Breeds() {
+export default function Breeds() {
   const [breeds, setBreeds] = useState([]);
   const [favorites, setFavorites] = useState(() => {
     const stored = localStorage.getItem("favorites");
@@ -34,39 +34,35 @@ function Breeds() {
   };
 
   return (
-    <div className="px-6 py-8 min-h-screen bg-black text-gray-200">
-      <h1 className="text-3xl font-bold mb-6 text-center text-silver-300">
-        All Dog Breeds
-      </h1>
-
+    <div className="px-6 py-8 min-h-screen bg-beigeLight text-textPrimary">
+      <h1 className="text-3xl font-bold mb-6 text-center">All Dog Breeds</h1>
       <div className="flex gap-8">
-        <div className="w-80 bg-black rounded-lg p-6 shadow-lg text-metallicGray max-h-[350px]">
+        <div className="w-80 bg-primary rounded-lg p-6 shadow-md text-beigeLight max-h-[350px] overflow-auto">
           <AddBreedForm />
         </div>
-
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {breeds.map((breed) => {
             const isFavorite = favorites.includes(breed.id);
             return (
               <div
                 key={breed.id}
-                className="max-w-sm rounded-lg overflow-hidden shadow-lg relative bg-metallicGray flex flex-col"
+                className="max-w-sm rounded-lg overflow-hidden shadow-md relative bg-primary flex flex-col"
               >
                 <img
                   src={breed.imageUrl}
                   alt={breed.name}
                   className="w-full h-60 object-cover"
                 />
-                <div className="p-4 text-gray-100 flex-1">
+                <div className="p-4 flex-1">
                   <h2 className="text-lg font-semibold">{breed.name}</h2>
-                  <p className="text-gray-300 text-sm">{breed.notes}</p>
+                  <p className="text-secondary text-sm">{breed.notes}</p>
                 </div>
-
-              
-                <div className="flex items-center justify-end space-x-2 p-4 border-t border-gray-700">
+                <div className="flex items-center justify-end space-x-2 p-4 border-t border-secondary">
                   <button
                     onClick={() => toggleFavorite(breed.id)}
-                    className="rounded-full px-3 py-1 text-2xl cursor-pointer select-none bg-gray-700 hover:bg-gray-600 text-red-500"
+                    className={`rounded-full px-3 py-1 cursor-pointer select-none text-lg ${
+                      isFavorite ? "text-red-500" : "text-beigeLight"
+                    }`}
                     aria-label={
                       isFavorite
                         ? "Remove from favorites"
@@ -75,16 +71,10 @@ function Breeds() {
                   >
                     {isFavorite ? "❤️" : "♡"}
                   </button>
-                  <button
-                    className="rounded-full px-3 py-1 text-sm font-semibold bg-gray-700 hover:bg-gray-600 text-gray-300"
-                    aria-label="Edit breed"
-                  >
+                  <button className="rounded-full px-3 py-1 text-sm font-semibold bg-secondary hover:bg-metallicGray text-beigeLight">
                     Edit
                   </button>
-                  <button
-                    className="rounded-full px-3 py-1 text-sm font-semibold bg-gray-700 hover:bg-gray-600 text-gray-300"
-                    aria-label="Delete breed"
-                  >
+                  <button className="rounded-full px-3 py-1 text-sm font-semibold bg-secondary hover:bg-metallicGray text-beigeLight">
                     Delete
                   </button>
                 </div>
@@ -96,5 +86,3 @@ function Breeds() {
     </div>
   );
 }
-
-export default Breeds;

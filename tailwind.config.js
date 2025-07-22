@@ -1,19 +1,15 @@
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,jsx,ts,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
       colors: {
-        black: '#000000',
-        silver: '#C0C0C0',
-        metallic: '#A5A5A5', // Beispiel Metallgrau
-        primary: '#1F2937', // dunkles Grau
-        secondary: '#6B7280', // Mittelgrau
-         metallicGray: '#5b5b5b', //Mettalic Grau
+        beigeLight: "#f5f1e7",
+        textPrimary: "#4b4a47",
+        primary: "#a89f91",
+        secondary: "#bfb7aa",
+        metallicGray: "#5b5b5b",
       },
     },
   },
   plugins: [require("daisyui")],
-}
+};

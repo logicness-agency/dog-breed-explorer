@@ -1,67 +1,53 @@
 import { useState } from "react";
 
-function AddBreedForm({ onBreedAdded }) {
+export default function AddBreedForm({ onAdd }) {
   const [name, setName] = useState("");
-  const [imageUrl, setImageUrl] = useState("");
   const [notes, setNotes] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const newBreed = { name, imageUrl, notes };
+    if (!name.trim()) return;
 
-    const response = await fetch(
-      "https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/breeds.json",
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(newBreed),
-      }
-    );
+    const newBreed = { name, notes, imageUrl };
+    onAdd(newBreed);
 
-    if (response.ok) {
-      setName("");
-      setImageUrl("");
-      setNotes("");
-      if (onBreedAdded) onBreedAdded();
-    } else {
-      alert("Failed to add breed");
-    }
+    setName("");
+    setNotes("");
+    setImageUrl("");
   };
 
   return (
-    <form onSubmit={handleSubmit} className="card shadow p-6 w-full max-w-md mb-8">
-      <h2 className="text-lg font-bold text-silver mb-4">Add a New Breed</h2>
-
+    <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-textPrimary">
+      <h2 className="text-xl font-semibold mb-2">Add a New Breed</h2>
       <input
         type="text"
         placeholder="Breed name"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
         required
-        className="input input-bordered w-full mb-3"
+      />
+      <input
+        type="text"
+        placeholder="Notes"
+        value={notes}
+        onChange={(e) => setNotes(e.target.value)}
+        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
       />
       <input
         type="url"
         placeholder="Image URL"
         value={imageUrl}
         onChange={(e) => setImageUrl(e.target.value)}
-        required
-        className="input input-bordered w-full mb-3"
+        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
       />
-      <textarea
-        placeholder="Notes about the breed"
-        value={notes}
-        onChange={(e) => setNotes(e.target.value)}
-        required
-        className="textarea textarea-bordered w-full mb-4"
-      />
-   <button className="btn w-full bg-silver text-black hover:bg-gray-300">
-  Add Breed
-</button>
-
-
+      <button
+        type="submit"
+        className="bg-primary text-beigeLight font-semibold py-2 rounded hover:bg-secondary transition-colors"
+      >
+        Add Breed
+      </button>
     </form>
   );
 }
-
-export default AddBreedForm;
