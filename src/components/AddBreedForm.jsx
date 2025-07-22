@@ -49,7 +49,9 @@ function AddBreedForm({ refresh }) {
         required
         className="input input-bordered"
       />
-      <button type="submit" className="btn btn-primary">Add Breed</button>
+      <button type="submit" className="btn bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200">Add Breed</button>
+
+
     </form>
   );
 }

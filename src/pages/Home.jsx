@@ -11,7 +11,13 @@ function Home() {
           <p className="py-6 text-primary">
             Discover and explore a wide variety of dog breeds with images and fun facts.
           </p>
-          <Link to="/breeds" className="btn btn-primary">Explore Breeds</Link>
+          <Link
+            to="/breeds"
+            className="btn bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200"
+          >
+            Explore Breeds
+          </Link>
+
         </div>
       </div>
     </div>

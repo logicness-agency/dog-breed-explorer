@@ -55,14 +55,14 @@ function Breeds() {
                 <div className="flex items-center justify-end space-x-2 p-4 border-t border-gray-300">
                   <button
                     onClick={() => toggleFavorite(breed.id)}
-                    className="btn btn-sm"
+                    className="btn btn-sm bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200 "
                     aria-label="Toggle favorite"
                   >
                     Favorite
                   </button>
                   <button
                     onClick={() => navigate(`/edit/${breed.id}`)}
-                    className="btn btn-sm btn-outline"
+                    className="btn btn-sm btn-outline bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200"
                   >
                     Edit
                   </button>

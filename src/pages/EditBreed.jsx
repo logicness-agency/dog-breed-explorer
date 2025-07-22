@@ -61,7 +61,7 @@ function EditBreed() {
           required
           className="input input-bordered w-full mb-4"
         />
-        <button type="submit" className="btn btn-primary w-full">
+        <button type="submit" className="btn bg-textPrimary text-beigeLight ">
           Save
         </button>
       </form>
