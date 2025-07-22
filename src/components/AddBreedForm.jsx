@@ -1,53 +1,57 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-export default function AddBreedForm({ onAdd }) {
+function AddBreedForm({ refresh }) {
   const [name, setName] = useState("");
   const [notes, setNotes] = useState("");
   const [imageUrl, setImageUrl] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!name.trim()) return;
+    if (!name || !imageUrl) return;
 
-    const newBreed = { name, notes, imageUrl };
-    onAdd(newBreed);
+    const newBreed = { name, notes, imageUrl, favorite: false };
+
+    await fetch("https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/breeds.json", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newBreed),
+    });
 
     setName("");
     setNotes("");
     setImageUrl("");
+    refresh();
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-3 text-textPrimary">
-      <h2 className="text-xl font-semibold mb-2">Add a New Breed</h2>
+    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+      <h2 className="text-xl font-bold mb-4">Add a New Breed</h2>
       <input
         type="text"
-        placeholder="Breed name"
+        placeholder="Breed Name"
         value={name}
-        onChange={(e) => setName(e.target.value)}
-        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
+        onChange={e => setName(e.target.value)}
         required
+        className="input input-bordered"
       />
-      <input
-        type="text"
+      <textarea
         placeholder="Notes"
         value={notes}
-        onChange={(e) => setNotes(e.target.value)}
-        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
+        onChange={e => setNotes(e.target.value)}
+        rows={3}
+        className="textarea textarea-bordered"
       />
       <input
         type="url"
         placeholder="Image URL"
         value={imageUrl}
-        onChange={(e) => setImageUrl(e.target.value)}
-        className="p-2 rounded border border-beigeMedium bg-beigeLight text-textPrimary focus:outline-primary"
+        onChange={e => setImageUrl(e.target.value)}
+        required
+        className="input input-bordered"
       />
-      <button
-        type="submit"
-        className="bg-primary text-beigeLight font-semibold py-2 rounded hover:bg-secondary transition-colors"
-      >
-        Add Breed
-      </button>
+      <button type="submit" className="btn btn-primary">Add Breed</button>
     </form>
   );
 }
+
+export default AddBreedForm;

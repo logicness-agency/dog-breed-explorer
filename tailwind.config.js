@@ -3,11 +3,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        beigeLight: "#f5f1e7",
-        textPrimary: "#4b4a47",
-        primary: "#a89f91",
-        secondary: "#bfb7aa",
-        metallicGray: "#5b5b5b",
+        beigeLight: "#f5f1e9",
+        primary: "#6d584c",
+        secondary: "#a0907e",
+        textPrimary: "#4b3d33",
       },
     },
   },

@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Breeds from "./pages/Breeds";
 import Favorites from "./pages/Favorites";
 import About from "./pages/About";
+import EditBreed from "./pages/EditBreed";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/breeds" element={<Breeds />} />
         <Route path="/favorites" element={<Favorites />} />
         <Route path="/about" element={<About />} />
+        <Route path="/edit/:id" element={<EditBreed />} />
       </Routes>
     </BrowserRouter>
   );
