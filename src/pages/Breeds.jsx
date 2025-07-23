@@ -80,7 +80,7 @@ export default function Breeds() {
                         : "bg-primary hover:bg-beigeDark text-beigeLight"
                     }`}
                   >
-                    {b.favorite ? "✓ Favorited" : "Favorite"}
+                    {b.favorite ? "Favorited" : "Favorite"}
                   </button>
 
                   <button
