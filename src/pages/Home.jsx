@@ -9,11 +9,11 @@ function Home() {
         <div>
           <h1 className="text-5xl font-bold text-primary">Welcome to Dog Breed Explorer!</h1>
           <p className="py-6 text-primary">
-            Discover and explore a wide variety of dog breeds with images and fun facts.
+            Discover and explore a wide variety of dog breeds with images and fun facts and feel free to add more.
           </p>
           <Link
             to="/breeds"
-            className="btn bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200"
+            className="rounded-full px-3 py-1 text-sm font-semibold bg-primary hover:bg-beigeDark text-beigeLight transition-colors duration-200"
           >
             Explore Breeds
           </Link>
