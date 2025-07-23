@@ -9,7 +9,7 @@ export default function Footer() {
     <p>Copyright © {new Date().getFullYear()} - All right reserved</p>
   </aside>
  <nav className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">
-  <a href="https://github.com/logicenes" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/logicness-agency" target="_blank" rel="noopener noreferrer">
     <img 
       src="https://img.icons8.com/?size=100&id=101795&format=png&color=ffffff" 
       alt="GitHub" 
