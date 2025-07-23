@@ -326,9 +326,9 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
      { image: `https://image.jimcdn.com/app/cms/image/transf/none/path/s6ca0a18e8c7fe491/image/i0dda0f0562446a29/version/1673463773/image.jpg`, text: "" },
-      { image: `https://youdidwhatwithyourweiner.com/wp-content/uploads/2023/03/Depositphotos_453296040_Lilun_li-800x533.jpg`, text: "" },
-      { image: `https://a-us.storyblok.com/f/1016262/4288x2848/6fef92978a/spoodle-puppy.jpeg`, text: "" },
-      { image: `https://www.animalhumanesociety.org/sites/default/files/styles/scale_width_960/public/media/image/2019-05/Puppy.jpg.webp?itok=QPM1tBal`, text: "" },
+      { image: `https://i.redd.it/hhosx9cv25j61.jpg`, text: "" },
+      { image: `https://us.images.westend61.de/0000244296pw/deutschland-baden-wuerttemberg-jack-russel-terrier-welpe-stehend-auf-wiese-SLF000237.jpg`, text: "" },
+      { image: `https://www.rinti.de/fileadmin/_processed_/e/9/csm_Welpe_AdobeStock_200917959_e8941e43e5.jpg`, text: "" },
       { image: `https://www.rinti.de/fileadmin/magazin/rinti/2023_November/Dalmatiner-1.jpg`, text: "" },
 
 

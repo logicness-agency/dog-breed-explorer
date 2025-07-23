@@ -1,17 +1,20 @@
 import { Link } from "react-router-dom";
+import myDog from "../assets/my-dog.jpg";
 import CircularGallery from "../components/CircularGallery";
 import Footer from "../components/Footer";
 
 export default function Home() {
   return (
-    <div>
-  
-      <div style={{ height: '60vh', width: '100%' }}>
-        <CircularGallery bend={3} borderRadius={0.05} scrollEase={0.02} />
+    <div style={{ position: 'relative' }}> {/* 👈 Parent container needs to be relative */}
+      {/* Absolute positioned gallery */}
+      <div style={{ 
+        height: '600px', position: 'absolute', top: 0, left: 0, width: '100%', zIndex: 10
+      }}>
+        <CircularGallery bend={3}  borderRadius={0.05} scrollEase={0.02} />
       </div>
 
-      
-      <div className="hero bg-beigeLight min-h-screen">
+      {/* Hero content with padding to avoid overlap */}
+      <div className="hero bg-beigeLight min-h-screen" style={{ paddingTop: '00px' }}>
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div>
             <h1 className="text-5xl font-bold text-primary">Welcome to Dog Breed Explorer!</h1>
