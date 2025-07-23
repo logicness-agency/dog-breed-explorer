@@ -24,7 +24,7 @@ function AddBreedForm({ refresh }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+    <form onSubmit={handleSubmit} className="flex  flex-col gap-4">
       <h2 className="text-xl font-bold mb-4">Add a New Breed</h2>
       <input
         type="text"
@@ -49,7 +49,7 @@ function AddBreedForm({ refresh }) {
         required
         className="input input-bordered"
       />
-      <button type="submit" className="btn bg-textPrimary text-beigeLight hover:bg-beigeDark transition-colors duration-200">Add Breed</button>
+      <button type="submit" className="rounded-full px-3 py-1 text-sm font-semibold bg-primary hover:bg-beigeDark text-beigeLight">Add Breed</button>
 
 
     </form>

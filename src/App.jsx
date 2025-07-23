@@ -1,24 +1,26 @@
+
+import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Home from "./pages/Home";
-import Breeds from "./pages/Breeds";
-import Favorites from "./pages/Favorites";
-import About from "./pages/About";
+import Home      from "./pages/Home";
+import Breeds    from "./pages/Breeds";
 import EditBreed from "./pages/EditBreed";
+import Favorites from "./pages/Favorites";
+import About     from "./pages/About";
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
+   
       <Navbar />
+
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/breeds" element={<Breeds />} />
-        <Route path="/favorites" element={<Favorites />} />
-        <Route path="/about" element={<About />} />
+        <Route path="/"         element={<Home />} />
+        <Route path="/breeds"   element={<Breeds />} />
         <Route path="/edit/:id" element={<EditBreed />} />
+        <Route path="/favorites" element={<Favorites />} />
+        <Route path="/about"    element={<About />} />
       </Routes>
     </BrowserRouter>
   );
 }
-
-export default App;
