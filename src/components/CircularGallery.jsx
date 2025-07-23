@@ -326,7 +326,7 @@ class App {
   createMedias(items, bend = 1, textColor, borderRadius, font) {
     const defaultItems = [
      { image: `https://image.jimcdn.com/app/cms/image/transf/none/path/s6ca0a18e8c7fe491/image/i0dda0f0562446a29/version/1673463773/image.jpg`, text: "" },
-      { image: `https://i.redd.it/hhosx9cv25j61.jpg`, text: "" },
+      { image: `https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=800&h=600&fit=crop&crop=face`, text: "" },
       { image: `https://us.images.westend61.de/0000244296pw/deutschland-baden-wuerttemberg-jack-russel-terrier-welpe-stehend-auf-wiese-SLF000237.jpg`, text: "" },
       { image: `https://www.rinti.de/fileadmin/_processed_/e/9/csm_Welpe_AdobeStock_200917959_e8941e43e5.jpg`, text: "" },
       { image: `https://www.rinti.de/fileadmin/magazin/rinti/2023_November/Dalmatiner-1.jpg`, text: "" },
