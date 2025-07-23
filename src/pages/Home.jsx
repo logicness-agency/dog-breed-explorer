@@ -12,7 +12,7 @@ export default function Home() {
       </div>
 
       {/* Hero content with padding to avoid overlap */}
-      <div className="hero bg-beigeLight min-h-screen pt-0">
+      <div className="hero bg-beigeLight min-h-screen pt-96">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <div className="text-center lg:text-left">
             <h1 className="text-5xl font-bold text-primary mb-6">
