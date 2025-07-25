@@ -32,14 +32,14 @@ function AddBreedForm({ refresh }) {
         value={name}
         onChange={e => setName(e.target.value)}
         required
-        className="input input-bordered"
+        className="input bg-white input-bordered"
       />
       <textarea
         placeholder="Notes"
         value={notes}
         onChange={e => setNotes(e.target.value)}
         rows={3}
-        className="textarea textarea-bordered"
+        className="textarea bg-white  textarea-bordered"
       />
       <input
         type="url"
@@ -47,7 +47,7 @@ function AddBreedForm({ refresh }) {
         value={imageUrl}
         onChange={e => setImageUrl(e.target.value)}
         required
-        className="input input-bordered"
+        className="input bg-white input-bordered"
       />
       <button type="submit" className="rounded-full px-3 py-1 text-sm font-semibold bg-primary hover:bg-beigeDark text-beigeLight">Add Breed</button>
 
