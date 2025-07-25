@@ -57,12 +57,6 @@ A live demo is deployed on Netlify and available at:
 
 - Frontend: https://github.com/logicness-agency/dog-breed-explorer
 
-## Project Presentation
-
-Slides for the project presentation can be found here:
-
-[https://your-slide-url.com](https://your-slide-url.com)
-
 ## Resources
 
 - Markdown syntax guide: https://www.markdownguide.org/basic-syntax/  
