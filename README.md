@@ -64,5 +64,5 @@ Slides for the project presentation can be found here:
 - Markdown syntax guide: https://www.markdownguide.org/basic-syntax/  
 - Circular Gallery component from React Bits:  
   https://www.reactbits.dev/components/circular-gallery ([reactbits.dev](https://www.reactbits.dev/components/circular-gallery?utm_source=chatgpt.com))  
-- Text Type Animation (Texttype) from React Bits:  
+- Text Type Animation from React Bits:  
   https://www.reactbits.dev/text-animations/text-type ([reactbits.dev](https://www.reactbits.dev/text-animations/text-type?utm_source=chatgpt.com))  
