@@ -1,12 +1,68 @@
-# React + Vite
+# Dog Breed Explorer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Description
 
-Currently, two official plugins are available:
+Dog Breed Explorer is a React single-page application (SPA) that lets users browse, add, edit, delete, and favorite dog breeds. The app integrates with a Firebase Realtime Database backend to persist data and demonstrates full CRUD functionality. It features a responsive design with mobile-first principles, React Router for navigation, and Tailwind CSS for styling.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Installation
 
-## Expanding the ESLint configuration
+To run this project locally on your machine, follow these steps:
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+1. **Clone the repository**  
+   ```bash
+   git clone https://github.com/logicness-agency/dog-breed-explorer.git
+   cd dog-breed-explorer
+   ```
+
+2. **Install dependencies**  
+   ```bash
+   npm install
+   ```
+
+3. **Install Tailwind CSS**  
+
+   This project uses Tailwind CSS for styling. Install it and its peer dependencies, then generate the configuration files:  
+   ```bash
+   npm install -D tailwindcss postcss autoprefixer
+   npx tailwindcss init -p
+   ```  
+   
+
+4. **Configure environment variables (optional)**  
+
+   By default, the app points to the Firebase Realtime Database at `https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/`.  
+
+   To use the same or a different Firebase database, create a `.env` file in the root directory and add:  
+   ```env
+   REACT_APP_FIREBASE_DATABASE_URL=https://dog-breeds-8c105-default-rtdb.europe-west1.firebasedatabase.app/
+   ```  
+   - If you set up your own Firebase project, replace the URL above with your project's database URL, and ensure your Realtime Database has appropriate read/write rules configured.
+
+5. **Run the application**  
+   ```bash
+   npm run dev
+   ```  
+   The app will start on `http://localhost:3000` by default.
+
+## Demo
+
+A live demo of this project is deployed on Netlify and available at:
+
+[https://dog-breed-explorer.netlify.app](https://dog-breed-explorer.netlify.app)
+
+## GitHub Repository
+
+- Frontend: https://github.com/logicness-agency/dog-breed-explorer
+
+## Project Presentation
+
+Slides for the project presentation can be found here:
+
+
+## Resources
+
+- Markdown syntax guide: https://www.markdownguide.org/basic-syntax/  
+- Circular Gallery component from React Bits (für bildschirmfüllende, kreisförmige Galerie):  
+  https://www.reactbits.dev/components/circular-gallery ([reactbits.dev](https://www.reactbits.dev/components/circular-gallery?utm_source=chatgpt.com))  
+- Text Type Animation (Texttype) from React Bits:  
+  https://www.reactbits.dev/text-animations/text-type ([reactbits.dev](https://www.reactbits.dev/text-animations/text-type?utm_source=chatgpt.com))  
