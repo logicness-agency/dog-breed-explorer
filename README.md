@@ -58,7 +58,7 @@ A live demo is deployed on Netlify and available at:
 - Frontend: https://github.com/logicness-agency/dog-breed-explorer
 
 ## Presentation Link
-- Link to my *[presention] (https://www.canva.com/design/DAGuJ-6Zz9g/ihzEtfVonpop-NzFaZ7gvw/edit?utm_content=DAGuJ-6Zz9g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)*.
+- Link to my *[presention](https://www.canva.com/design/DAGuJ-6Zz9g/ihzEtfVonpop-NzFaZ7gvw/edit?utm_content=DAGuJ-6Zz9g&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton)*.
 
 ## Resources
 
